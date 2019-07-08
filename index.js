@@ -13,5 +13,5 @@ const server = http.createServer(function (request, response) {
     }
 })
 
-server.listen(4000);
+server.listen(process.env.PORT || 4000);
 console.log('server srarted!');
