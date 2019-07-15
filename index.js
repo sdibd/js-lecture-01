@@ -1,17 +1,27 @@
 const http = require('http');
 const fs = require('fs');
+const url = require('url');
+
+const port = process.env.PORT || 3000;
+
+const readFile = (url, response) => {
+	fs.readFile(url, 'utf8', (err, data) => {
+		if (err) {
+			console.error(err);
+			response.statusCode = 204;
+			response.end(JSON.stringify(err));
+		} else {
+			console.log(url);
+			response.writeHead(200);
+			response.end(data);
+		}
+	});
+};
 
 const server = http.createServer(function (request, response) {
-    console.log(request.method, request.url);
+	const path = url.parse(request.url, true).pathname.replace(/^\/+|\/+$/g, '');
+	readFile(path, response);
+});
 
-    if (request.url == '/') {
-        const content = fs.readFileSync('index.html', 'utf8');
-        response.end(content);        
-    } else if (request.url == '/style.css') {
-        const content = fs.readFileSync('style.css', 'utf8'); 
-        response.end(content);
-    }
-})
-
-server.listen(process.env.PORT || 4000);
-console.log('server srarted!');
+server.listen(port);
+console.log(`server started on ${port} port`);
