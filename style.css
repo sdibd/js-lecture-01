@@ -1,0 +1,28 @@
+body {
+    background-color:rgb(91, 94, 125);
+    }
+    
+
+h2 {
+    border-width: medium;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(185, 184, 203);
+    font-size: 500%;
+}
+
+ul {
+    border-width: medium;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    color: rgb(175, 169, 187);
+    font-size: 200%;
+}
+
+a {
+    color: rgb(185, 184, 203);
+}
