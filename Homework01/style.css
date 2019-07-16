@@ -1,0 +1,12 @@
+body {
+    background-color:rgb(49, 43, 70);
+    }
+    
+.name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(175, 169, 187);
+    font-size: 500%;
+}
